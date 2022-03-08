@@ -6,7 +6,7 @@
  * @problem.severity error
  * @security-severity 8.1
  * @precision medium
- * @id cpp/uncontrolled-allocation-size-custom
+ * @id cpp/uncontrolled-allocation-size
  * @tags reliability
  *       security
  *       external/cwe/cwe-190

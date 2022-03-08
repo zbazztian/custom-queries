@@ -1,6 +1,7 @@
 # https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/
 
-- import: codeql-suites/cpp-code-scanning.qls
+# add standard security and quality query set
+- import: codeql-suites/cpp-security-and-quality.qls
   from: codeql/cpp-queries         # our query pack is based on the original one
 - exclude:
     id:
@@ -8,9 +9,24 @@
     - cpp/unclear-array-index-validation
     - cpp/overflow-destination
     - cpp/uncontrolled-allocation-size
+
+# add custom queries
+- qlpack: custom-cpp-query-pack
 - include:
     id:
-    - cpp/double-free-custom
-    - cpp/unclear-array-index-validation-custom
-    - cpp/overflow-destination-custom
-    - cpp/uncontrolled-allocation-size-custom
+    - cpp/double-free
+    - cpp/unclear-array-index-validation
+    - cpp/overflow-destination
+    - cpp/uncontrolled-allocation-size
+
+# add a few non-standard queries, which are normally disabled
+- queries: '.'
+  from: codeql/cpp-queries
+- include:
+    id:
+    - cpp/descriptor-may-not-be-closed
+    - cpp/descriptor-never-closed
+    - cpp/file-may-not-be-closed
+    - cpp/file-never-closed
+    - cpp/memory-may-not-be-freed
+    - Critical/MemoryNeverFreed.ql

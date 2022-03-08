@@ -4,7 +4,7 @@
  *              that the index is within the bounds of the array can
  *              cause undefined behavior and can also be a security risk.
  * @kind path-problem
- * @id cpp/unclear-array-index-validation-custom
+ * @id cpp/unclear-array-index-validation
  * @problem.severity warning
  * @security-severity 8.8
  * @tags security

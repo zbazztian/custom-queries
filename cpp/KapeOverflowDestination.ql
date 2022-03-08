@@ -3,7 +3,7 @@
  * @description Calling a copy operation with a size derived from the source
  *              buffer instead of the destination buffer may result in a buffer overflow.
  * @kind path-problem
- * @id cpp/overflow-destination-custom
+ * @id cpp/overflow-destination
  * @problem.severity warning
  * @security-severity 9.3
  * @precision low
