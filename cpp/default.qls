@@ -1,0 +1,16 @@
+# https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/
+
+- import: codeql-suites/cpp-code-scanning.qls
+  from: codeql/cpp-queries         # our query pack is based on the original one
+- exclude:
+    id:
+    - cpp/double-free
+    - cpp/unclear-array-index-validation
+    - cpp/overflow-destination
+    - cpp/uncontrolled-allocation-size
+- include:
+    id:
+    - cpp/double-free-custom
+    - cpp/unclear-array-index-validation-custom
+    - cpp/overflow-destination-custom
+    - cpp/uncontrolled-allocation-size-custom
