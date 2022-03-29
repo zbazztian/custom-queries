@@ -15,10 +15,10 @@ predicate between(ControlFlowNode a, ControlFlowNode mid, ControlFlowNode b) {
   notThroughX(a, mid, b) and notThroughX(mid, b, a)
 }
 
-predicate notThroughX(ControlFlowNode e1, ControlFlowNode e2, ControlFlowNode X) {
+predicate notThroughX(ControlFlowNode e1, ControlFlowNode e2, ControlFlowNode x) {
   e1 = e2
   or
-  exists(ControlFlowNode cfn | cfn = e1.getASuccessor() and cfn != X and notThroughX(cfn, e2, X))
+  exists(ControlFlowNode cfn | cfn = e1.getASuccessor() and cfn != x and notThroughX(cfn, e2, x))
 }
 
 from FunctionCall fc, FunctionCall fc2, LocalScopeVariable v
